@@ -56,6 +56,9 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCount = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVGolf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -65,7 +68,6 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGVGolf
@@ -85,7 +87,7 @@
             // 
             // btnAllData
             // 
-            this.btnAllData.Location = new System.Drawing.Point(7, 6);
+            this.btnAllData.Location = new System.Drawing.Point(1447, 19);
             this.btnAllData.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnAllData.Name = "btnAllData";
             this.btnAllData.Size = new System.Drawing.Size(303, 82);
@@ -125,6 +127,11 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.Tan;
+            this.splitContainer2.Panel1.Controls.Add(this.btnInsert);
+            this.splitContainer2.Panel1.Controls.Add(this.btnDelete);
+            this.splitContainer2.Panel1.Controls.Add(this.btnUpdate);
+            this.splitContainer2.Panel1.Controls.Add(this.btnCount);
+            this.splitContainer2.Panel1.Controls.Add(this.btnAllData);
             this.splitContainer2.Panel1.Controls.Add(this.txtHandicap);
             this.splitContainer2.Panel1.Controls.Add(this.label11);
             this.splitContainer2.Panel1.Controls.Add(this.label12);
@@ -331,7 +338,7 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(152, 34);
+            this.txtSurname.Location = new System.Drawing.Point(1007, 39);
             this.txtSurname.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(239, 49);
@@ -349,7 +356,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(1044, 36);
+            this.txtID.Location = new System.Drawing.Point(115, 39);
             this.txtID.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(239, 49);
@@ -359,18 +366,16 @@
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this.btnAllData);
-            this.flowLayoutPanel1.Controls.Add(this.btnCount);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(381, 484);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(0, 484);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // btnCount
             // 
-            this.btnCount.Location = new System.Drawing.Point(7, 100);
+            this.btnCount.Location = new System.Drawing.Point(1373, 119);
             this.btnCount.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnCount.Name = "btnCount";
             this.btnCount.Size = new System.Drawing.Size(367, 82);
@@ -378,6 +383,36 @@
             this.btnCount.Text = "Count Entries";
             this.btnCount.UseVisualStyleBackColor = true;
             this.btnCount.Click += new System.EventHandler(this.btnCount_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(1507, 222);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(233, 99);
+            this.btnUpdate.TabIndex = 66;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(1518, 350);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(222, 94);
+            this.btnDelete.TabIndex = 67;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(1229, 358);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(234, 86);
+            this.btnInsert.TabIndex = 68;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // Form1
             // 
@@ -399,7 +434,6 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -434,6 +468,9 @@
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnInsert;
     }
 }
 

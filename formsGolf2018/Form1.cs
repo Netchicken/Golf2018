@@ -57,5 +57,80 @@ namespace formsGolf2018
             }
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //this updates existing data in the database where the ID of the data equals the ID in the text box
+
+            string UpdateQuery = Queries.UpdateQuery;
+
+            SqlConnection Con = new SqlConnection();
+            Con.ConnectionString = Connection.ConnectionString;
+
+
+            SqlCommand update = new SqlCommand(UpdateQuery, Con);
+            //create the parameters and pass the data from the textboxes
+
+            update.Parameters.AddWithValue("@ID", txtID.Text);
+            update.Parameters.AddWithValue("@Title", txtTitle.Text);
+            update.Parameters.AddWithValue("@Firstname", txtFirstname.Text);
+            update.Parameters.AddWithValue("@Surname", txtSurname.Text);
+            update.Parameters.AddWithValue("@Street", txtStreet.Text);
+            update.Parameters.AddWithValue("@Suburb", txtSuburb.Text);
+            update.Parameters.AddWithValue("@City", txtCity.Text);
+            update.Parameters.AddWithValue("@Gender", txtGender.Text);
+            update.Parameters.AddWithValue("@DOB", txtDOB.Text);
+            update.Parameters.AddWithValue("@Handicap", txtHandicap.Text);
+            update.Parameters.AddWithValue("@Available", txtAvailable.Text);
+
+            Con.Open();
+            //its NONQuery as data is only going up
+            update.ExecuteNonQuery();
+            Con.Close();
+
+            //refresh dgv with the new data
+            DGVGolf.DataSource = CommandsToDB.AllData();
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            CommandsToDB.DeleteData(txtID.Text);
+
+            //refresh dgv with the new data
+            DGVGolf.DataSource = CommandsToDB.AllData();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            // this puts the parameters into the code so that the data in the text boxes is added to the database
+            string NewEntry = Queries.InsertQuery;
+            SqlConnection Con = new SqlConnection();
+            string connectionString = Connection.ConnectionString;
+            Con.ConnectionString = connectionString;
+            using (SqlCommand newdata = new SqlCommand(NewEntry, Con))
+            {
+
+                newdata.Parameters.AddWithValue("@Title", txtTitle.Text);
+                newdata.Parameters.AddWithValue("@Firstname", txtFirstname.Text);
+                newdata.Parameters.AddWithValue("@Surname", txtSurname.Text);
+                newdata.Parameters.AddWithValue("@Street", txtStreet.Text);
+                newdata.Parameters.AddWithValue("@Suburb", txtSuburb.Text);
+                newdata.Parameters.AddWithValue("@City", txtCity.Text);
+                newdata.Parameters.AddWithValue("@Gender", txtGender.Text);
+                newdata.Parameters.AddWithValue("@DOB", txtDOB.Text);
+                newdata.Parameters.AddWithValue("@Handicap", txtHandicap.Text);
+                newdata.Parameters.AddWithValue("@Available", txtAvailable.Text);
+
+                Con.Open(); //open a connection to the database
+                //its a NONQuery as it doesn't return any data its only going up to the server
+                newdata.ExecuteNonQuery();  //Run the Query
+                //a happy message box
+                MessageBox.Show("Data has been Inserted  !! ");
+            }
+            //refresh dgv with the new data
+            DGVGolf.DataSource = CommandsToDB.AllData();
+
+        }
     }
 }

@@ -92,6 +92,21 @@ namespace formsGolf2018
             return response;
         }
 
+        public static void DeleteData(string ID)
+        {
+            SqlConnection Con = new SqlConnection();
+            string connectionString = Connection.ConnectionString;
+            Con.ConnectionString = connectionString;
 
+            string DeleteCommand = Queries.DeleteQuery;
+
+            SqlCommand DeleteData = new SqlCommand(DeleteCommand, Con);
+            DeleteData.Parameters.AddWithValue("@ID", ID);
+
+            Con.Open();
+            DeleteData.ExecuteNonQuery();
+            Con.Close();
+
+        }
     }
 }
